@@ -4,7 +4,7 @@
 	<author>Administrator</author>
 	<namespace>Me</namespace>
     
-	<entity name="MeItem" local-service="true" remote-service="true">
+	<entity name="MeItem" uuid="true" local-service="true" remote-service="true">
 
 		<!-- PK fields -->
 
@@ -28,18 +28,38 @@
 		<column name="statusByUserName" type="String" />
 		<column name="statusDate" type="Date" />
 
-		<!-- Other fields -->
-
+		<!-- Common fields -->
 		<column name="name" type="String" />
-		<column name="desc" type="boolean" />
-		<column name="field3" type="int" />
-		<column name="field4" type="Date" />
-		<column name="field5" type="String" />
-
+		<column name="desc" type="String" />
+		<column name="remark" type="String" />
+	    <column name="useStatus" type="int" />
+		
+		
+		<!-- Other fields -->
+		<column name="code" type="String" />
+        <column name="spec" type="String" />
+        <column name="unit" type="String" />
+		<column name="brand" type="String"/>
+		<column name="madeBy" type="String"/>
+		<column name="sku" type="String" />
+		<column name="hasImage" type="boolean" />
+		<column name="imageId" type="long" />
+		<column name="imageURL" type="String" />
+		
+		<!-- refference Ids -->
+        <column name="attrId" type="int" /><!--固定资产、低值耐用、低值易耗、备品备件、然润料、辅助材料-->
+		<!--(XX XX XX)-XX-XX-XXXX-XX-XX-->
+		<!--Check delete constraints-->
+		<column name="materialId" type="String">
+		<column name="assetCategoryId" type="long">
+		<column name="categoryId" type="long">
+		<column name="serialId" type="long">
+		<column name="specId" type="long">
+		<column name="brandId" type="long">
 		<!-- Order -->
 
 		<order by="asc">
-			<order-column name="field1" />
+			<order-column name="name" />
 		</order>
 
 		<!-- Finder methods -->
