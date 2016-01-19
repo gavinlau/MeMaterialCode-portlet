@@ -4,5 +4,6 @@
 <display>
 	<category name="category.sample">
 		<portlet id="MeMaterialCode" />
+		<portlet id="material-code"></portlet>
 	</category>
 </display>

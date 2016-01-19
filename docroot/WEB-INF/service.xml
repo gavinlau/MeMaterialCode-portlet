@@ -32,7 +32,7 @@
 		<column name="name" type="String" />
 		<column name="desc" type="String" />
 		<column name="remark" type="String" />
-	    <column name="useStatus" type="int" />
+	    <column name="useStatus" type="int" /><!--0 草稿、1 在用、2  挂起、3、废弃-->
 		
 		
 		<!-- Other fields -->
@@ -46,26 +46,41 @@
 		<column name="imageId" type="long" />
 		<column name="imageURL" type="String" />
 		
+		<column name="price" type="double" /><!-- 平均价格，每月更新一次 -->
 		<!-- refference Ids -->
         <column name="attrId" type="int" /><!--固定资产、低值耐用、低值易耗、备品备件、然润料、辅助材料-->
-		<!--(XX XX XX)-XX-XX-XXXX-XX-XX-->
+		<!--(XX XX XX)-XX-XXXX-XX-XX-->
 		<!--Check delete constraints-->
-		<column name="materialId" type="String">
-		<column name="assetCategoryId" type="long">
-		<column name="categoryId" type="long">
-		<column name="serialId" type="long">
-		<column name="specId" type="long">
-		<column name="brandId" type="long">
+		<column name="materialId" type="String"/>
+		
+		<column name="assetCategoryId" type="String"/>
+		<column name="categoryId" type="long"/>
+		<column name="serialId" type="long"/>
+		<column name="specId" type="long"/>
+		<column name="brandId" type="long"/>
 		<!-- Order -->
 
 		<order by="asc">
-			<order-column name="name" />
+		    <order-column name="assetCategoryId" />
+		    <order-column name="categoryId" />
+		    <order-column name="serialId" />
+		    <order-column name="specId" />
+		    <order-column name="brandId" />
 		</order>
 
 		<!-- Finder methods -->
 
-		<finder name="Field2" return-type="Collection">
-			<finder-column name="field2" />
+		<finder name="materialId" return-type="Collection">
+			<finder-column name="materialId" />
 		</finder>
+		
+		<finder name="fuzzyName" return-type="Collection">
+			<finder-column name="name" comparator="LIKE"/>
+		</finder>
+		
+		<finder name="useStatus" return-type="Collection">
+			<finder-column name="useStatus"/>
+		</finder>
+		
 	</entity>
 </service-builder>
