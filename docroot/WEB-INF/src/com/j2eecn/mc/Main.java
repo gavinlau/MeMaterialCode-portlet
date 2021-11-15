@@ -16,8 +16,8 @@ import com.aliyun.oss.model.ObjectListing;
 public class Main {
 
 	 private static String endpoint = "http://oss-cn-hangzhou.aliyuncs.com";
-	    private static String accessKeyId = "n8fhjIPA9hbE0XhR";
-	    private static String accessKeySecret = "TwFXz2AOyKvo2jpcBFXvxqHgLKNPgO";
+	    private static String accessKeyId = "";
+	    private static String accessKeySecret = "";
 
 	    private static String bucketName = "logicbiz-b1";
 	    
